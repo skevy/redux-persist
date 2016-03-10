@@ -34,7 +34,7 @@ export default function getStoredState (config, onComplete) {
     let state = null
 
     try {
-      let data = deserialize(serialized)
+      let data = deserialize(serialized, key)
       state = transforms.reduceRight((subState, transformer) => {
         return transformer.out(subState)
       }, data)
